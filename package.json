@@ -1,0 +1,21 @@
+{
+  "name": "ts-util",
+  "version": "1.0.0",
+  "description": "Une implémentation de la classe Optional de Java en TypeScript.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "Nseng",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
