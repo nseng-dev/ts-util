@@ -1,15 +1,30 @@
 {
-  "name": "ts-util",
+  "name": "@nseng-dev/ts-util",
   "version": "1.0.0",
   "description": "Une implémentation de la classe Optional de Java en TypeScript.",
   "main": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/nseng-dev/ts-util.git"
+},
+ 
   "scripts": {
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
-  "keywords": [],
+
+  "keywords": [
+    "typescript",
+    "util",
+    "utility"],
   "author": "Nseng",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
     "@types/jest": "^30.0.0",
