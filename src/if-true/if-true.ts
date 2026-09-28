@@ -38,3 +38,46 @@ export function ifTrue(condition: boolean) {
     },
   };
 }
+
+/**
+ * Évalue paresseusement l'une des deux branches selon une condition, sous forme
+ * d'expression unique plus proche du `? :` natif que `ifTrue(...).do(...).else(...)`.
+ * @remarks Seule la branche retenue est exécutée, comme pour `ifTrue` ci-dessus.
+ * @param condition La condition à évaluer.
+ * @param ifTrue La fonction exécutée si `condition` est vraie.
+ * @param ifFalse La fonction exécutée si `condition` est fausse.
+ * @returns Le résultat de la branche exécutée.
+ * @example
+ * // Impératif :
+ * const statut = age >= 18 ? "majeur" : "mineur";
+ *
+ * // Fonctionnel :
+ * const statut = ternary(age >= 18, () => "majeur", () => "mineur");
+ */
+export function ternary<T>(
+  condition: boolean,
+  ifTrue: () => T,
+  ifFalse: () => T
+): T {
+  return condition ? ifTrue() : ifFalse();
+}
+
+/**
+ * Sélectionne l'une de deux valeurs déjà calculées selon une condition.
+ * @remarks Version eager de `ternary` : les deux valeurs sont déjà évaluées
+ * par l'appelant avant l'appel, contrairement à `? :` qui ne construit jamais
+ * la branche non retenue.
+ * @param condition La condition à évaluer.
+ * @param ifTrue La valeur retournée si `condition` est vraie.
+ * @param ifFalse La valeur retournée si `condition` est fausse.
+ * @returns `ifTrue` ou `ifFalse` selon `condition`.
+ * @example
+ * // Impératif :
+ * const label = estActif ? "actif" : "inactif";
+ *
+ * // Fonctionnel :
+ * const label = ternaryVal(estActif, "actif", "inactif");
+ */
+export function ternaryVal<T>(condition: boolean, ifTrue: T, ifFalse: T): T {
+  return condition ? ifTrue : ifFalse;
+}
