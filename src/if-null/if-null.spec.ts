@@ -1,4 +1,4 @@
-import { ifNull } from "./if-null";
+import { ifNull, coalesce } from "./if-null";
 
 describe("ifNull", () => {
   describe("quand la valeur est null", () => {
@@ -42,6 +42,38 @@ describe("ifNull", () => {
         .do(onNull)
         .else((valeur) => valeur);
       expect(onNull).not.toHaveBeenCalled();
+    });
+  });
+});
+
+describe("coalesce", () => {
+  describe("quand value est null", () => {
+    it("devrait retourner fallback", () => {
+      expect(coalesce(null, "Anonyme")).toBe("Anonyme");
+    });
+  });
+
+  describe("quand value est undefined", () => {
+    it("devrait retourner fallback", () => {
+      expect(coalesce(undefined, "Anonyme")).toBe("Anonyme");
+    });
+  });
+
+  describe("quand value est présente", () => {
+    it("devrait retourner value et non fallback", () => {
+      expect(coalesce("Bob", "Anonyme")).toBe("Bob");
+    });
+
+    it("devrait retourner 0 et non le fallback (contrairement à ||)", () => {
+      expect(coalesce(0, 42)).toBe(0);
+    });
+
+    it("devrait retourner une chaîne vide et non le fallback (contrairement à ||)", () => {
+      expect(coalesce("", "Anonyme")).toBe("");
+    });
+
+    it("devrait retourner false et non le fallback (contrairement à ||)", () => {
+      expect(coalesce(false, true)).toBe(false);
     });
   });
 });

@@ -40,3 +40,22 @@ export function ifNull<T>(value: T | null | undefined) {
     },
   };
 }
+
+/**
+ * Retourne `value` si elle est présente (non `null`/`undefined`), sinon `fallback`.
+ * @remarks Mirroir exact de `??` (et non de `||`) : une valeur "falsy" mais
+ * présente comme `0`, `""` ou `false` est retournée telle quelle, seule
+ * l'absence (`null`/`undefined`) déclenche `fallback`.
+ * @param value La valeur potentiellement absente.
+ * @param fallback La valeur de repli utilisée si `value` est absente.
+ * @returns `value` si présente, sinon `fallback`.
+ * @example
+ * // Impératif :
+ * const nom = utilisateur.surnom ?? "Anonyme";
+ *
+ * // Fonctionnel :
+ * const nom = coalesce(utilisateur.surnom, "Anonyme");
+ */
+export function coalesce<T>(value: T | null | undefined, fallback: T): T {
+  return value ?? fallback;
+}
