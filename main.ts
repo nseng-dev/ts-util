@@ -8,7 +8,7 @@ import {
   ternary,
   ternaryVal,
   coalesce,
-} from "./index";
+} from "./src/index";
 
 interface Utilisateur {
   nom: string;

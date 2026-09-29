@@ -4,6 +4,9 @@
   "description": "Une implémentation de la classe Optional de Java en TypeScript.",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com"
