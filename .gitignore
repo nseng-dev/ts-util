@@ -1,0 +1,52 @@
+# Dépendances et modules locaux
+# On ne veut jamais envoyer les dépendances sur Git.
+# Chaque développeur doit les installer localement avec 'npm install' ou 'yarn'.
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Fichiers de compilation TypeScript
+# Le code TypeScript est compilé en JavaScript. On versionne le code source (.ts),
+# pas le résultat de la compilation (.js).
+/dist/
+/build/
+*.js
+*.js.map
+*.d.ts
+
+# Fichiers de logs
+# Les logs sont spécifiques à l'exécution et ne doivent pas être versionnés.
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers de configuration de l'IDE et du système
+# Ces fichiers sont spécifiques à l'environnement de chaque développeur.
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Configuration locale Claude Code
+.claude/
+
+# Variables d'environnement
+# Fichier très sensible contenant des clés d'API, des mots de passe, etc.
+# Ne JAMAIS versionner ce fichier !
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Rapports de test et de couverture de Jest
+# Ces rapports sont générés à chaque exécution des tests et n'ont pas leur place sur Git.
+/coverage/
+.jest-cache/
+
+# Fichiers temporaires ou de build
+.tmp/
+temp/
