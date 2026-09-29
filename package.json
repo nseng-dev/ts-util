@@ -1,7 +1,7 @@
 {
   "name": "@nseng-dev/ts-util",
-  "version": "1.1.0",
-  "description": "Une implémentation de la classe Optional de Java en TypeScript.",
+  "version": "1.1.1",
+  "description": "Boîte à outils TypeScript remplaçant les opérateurs et structures de contrôle natifs (if/else, &&, ||, ??, ===, switch) par des fonctions typées et composables : Optional, Logic, Comparison, ifNull/coalesce, ifTrue/ternary, match.",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
